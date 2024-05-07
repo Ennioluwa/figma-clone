@@ -1,3 +1,24 @@
 {
-  "extends": "next/core-web-vitals"
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended","plugin:@tanstack/eslint-plugin-query/recommended"],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/no-rest-destructuring": "warn",
+    "@tanstack/query/stable-query-client": "error"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn", "cva"],
+      "config": "tailwind.config.ts"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
 }
